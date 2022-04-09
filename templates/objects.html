@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% block objectdata %}
+<div class="container-fluid text-center justify-content-center" style="width: 95%;
+margin-top: 100px;">
+    <p class="text-light"> <b>Objects:</b> <em>{{ objects }}</em> </p>
+    <table class="table table-hover table-striped table-light table-bordered">
+        <thead class="table-dark">
+            <tr>
+                {% for header in headings %}
+                <th>{{ header }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody class="align-middle">
+            {% for rule in rules %}
+                {% for row in rule %}
+            <tr> 
+                <td>
+                    <p>{{ row[1] }}</p>
+                </td>
+                <td>
+                    <p >{{ row[2] }}</p>
+                </td>
+                <td>
+                    {% for item in row[3] -%}
+                    <p >{{ item }}</p>
+                    {% endfor %}
+                </td>
+                <td>
+                    {% for item in row[4] -%}
+                    <p >{{ item }}</p>
+                    {% endfor %}
+                </td>
+                <td>
+                    {% for item in row[5] -%}
+                        {% if row[11] == True %}
+                            <p class='text-decoration-line-through'>{{ item }}</p>
+                        {% else %}
+                            <p>{{ item }}</p>
+                        {% endif %}
+                    {% endfor %}
+                </td>
+                <td>
+                    {% for item in row[6] -%}
+                    <p >{{ item }}</p>
+                    {% endfor %}
+                </td>
+                <td>
+                    {% for item in row[7] -%}
+                    {% if row[12] == True %}
+                        <p class='text-decoration-line-through'>{{ item }}</p>
+                    {% else %}
+                        <p>{{ item }}</p>
+                    {% endif %}
+                {% endfor %}
+                </td>
+                <td>
+                    {% for item in row[8] -%}
+                    <p >{{ item }}</p>
+                    {% endfor %}
+                </td>
+                <td>
+                    {% for item in row[9] -%}
+                    <p >{{ item }}</p>
+                    {% endfor %}
+                </td>
+                <td>
+                    {% for item in row[10] -%}
+                    <p >{{ item }}</p>
+                    {% endfor %}
+                </td>
+                <td>
+                    {% if row[13] != 'allow' %}
+                    <p class="text-danger text-uppercase">{{ row[13] }}</p>
+                    {% else %}
+                    <p>{{ row[13] }}</p>
+                    {% endif %}
+                </td>
+                <td>
+                    {% if row[14] == True %}
+                    <p class="text-danger text-uppercase">{{ row[14] }}</p>
+                    {% else %}
+                    <p>{{ row[14] }}</p>
+                    {% endif %}
+                </td>
+            </tr>
+                {% endfor %}
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<script>
+    function negate() {
+        if(row[11]==="False") { 
+                   document.getElementById('sourceAddr').addClass('text-decoration-line-through'); 
+               } else { 
+                   document.getElementById('sourceAddr').removeClass('text-decoration-line-through');
+               }
+           }
+</script>
+
+{% endblock %}
+

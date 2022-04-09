@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block objectform %}
+
+<div id="loading"></div>
+    <div id="content" class="d-flex flex-column align-middle justify-content-center" style="height: 95vh;">
+        <form class="d-flex align-items-stretch justify-content-center text-center" action="" method="post">
+            <input style="width: 30%;" type="text" name="object" id="object" placeholder="Enter IP or FQDN" onkeyup="success();">
+            <button  id="button" class="button btn btn-primary mx-sm-3" type="submit" disabled>
+                <span class="button__text" >Search</span>
+            </button>
+
+            <script>
+                const theButton = document.querySelector(".button");
+
+                theButton.addEventListener("click", () => {
+                    theButton.classList.add("button--loading");
+                });
+
+                function success() {
+                    if(document.getElementById("object").value==="") { 
+                               document.getElementById('button').disabled = true; 
+                           } else { 
+                               document.getElementById('button').disabled = false;
+                           }
+                       }
+            </script>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
+
