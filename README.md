@@ -1,7 +1,7 @@
 # RuleFinder - Palo Alto Utility
 This is a utility built to work with the Palo Alto firewall management system (Panorama).
 It provides the ability to search for any IP/FQDN and find all associated security rules.
-![Demo2](https://user-images.githubusercontent.com/88141669/162584585-d1a104f0-5e7c-465a-9f7a-2c33146291b8.gif)
+
 
 
 # Technologies
